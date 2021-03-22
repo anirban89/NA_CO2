@@ -1,0 +1,8 @@
+&PTRACERS_PARM01
+  PTRACERS_Iter0=11923200,
+  PTRACERS_numInUse=2,
+  PTRACERS_advScheme(1)=7,
+  PTRACERS_advScheme(2)=7,
+  PTRACERS_names(1)='TRAC01',
+  PTRACERS_names(2)='TRAC02',
+&
