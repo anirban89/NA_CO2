@@ -71,7 +71,7 @@ C Example of how to add forcing at the surface
           IF ( iTrc .EQ. PTRACERS_ptx(k) .AND.
      &           myIter .EQ. PTRACERS_tsx(k) .AND.
      &           iG .EQ. PTRACERS_ix(k) .AND.
-     &           jG .EQ. PTRACERS_jx(k) THEN
+     &           jG .EQ. PTRACERS_jx(k) ) THEN
              surfaceForcingPTr(i,j,bi,bj,iTrc) = 1. _d 0 / deltaT
           ENDIF
          ENDDO
