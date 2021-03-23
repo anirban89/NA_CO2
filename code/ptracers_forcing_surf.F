@@ -43,10 +43,12 @@ C  myThid               :: thread number
 #ifdef ALLOW_PTRACERS
 
 C !LOCAL VARIABLES: ====================================================
-C  i,j                  :: loop indices
+C  iG,jG                :: Global coordinate index
+C  i,j,k                :: loop indices
 C  iTrc                 :: tracer index
 C  ks                   :: surface level index
-      INTEGER i, j
+      INTEGER iG, jG
+      INTEGER i, j, k
       INTEGER iTrc, ks
       _RL add2EmP(1-OLx:sNx+OLx,1-OLy:sNy+OLy)
       _RL epsil, cutoff, tmpVar
@@ -60,14 +62,21 @@ CEOP
 
 C Example of how to add forcing at the surface
       DO iTrc=1,PTRACERS_numInUse
-c       IF ( PTRACERS_StepFwd(iTrc) ) THEN
-          DO j = jMin, jMax
-           DO i = iMin, iMax
-             surfaceForcingPTr(i,j,bi,bj,iTrc) = 0. _d 0
-c    &                        + surfaceForcingS(i,j,bi,bj)
-           ENDDO
-          ENDDO
-c       ENDIF
+       DO j = jMin, jMax
+        DO i = iMin, iMax
+         iG = myXGlobalLo-1+(bi-1)*sNx+i
+         jG = myYGlobalLo-1+(bj-1)*sNy+j
+         surfaceForcingPTr(i,j,bi,bj,iTrc) = 0. _d 0
+         DO k = 1, PTRACERS_idx
+          IF ( iTrc .EQ. PTRACERS_ptx(k) .AND.
+     &           myIter .EQ. PTRACERS_tsx(k) .AND.
+     &           iG .EQ. PTRACERS_ix(k) .AND.
+     &           jG .EQ. PTRACERS_jx(k) THEN
+             surfaceForcingPTr(i,j,bi,bj,iTrc) = 1. _d 0 / deltaT
+          ENDIF
+         ENDDO
+        ENDDO
+       ENDDO
       ENDDO
 
 C--   Option to convert Salt-relaxation into additional EmP contribution

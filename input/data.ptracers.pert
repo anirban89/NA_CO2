@@ -1,0 +1,14 @@
+&PTRACERS_PARM01
+  PTRACERS_Iter0=11923200,
+  PTRACERS_numInUse=2,
+  PTRACERS_advScheme(1)=7,
+  PTRACERS_advScheme(2)=7,
+  PTRACERS_names(1)='TRAC01',
+  PTRACERS_names(2)='TRAC02',
+  PTRACERS_ix = 500, 1000, 1500, 2000, 2500,
+                500, 1000, 1500, 2000, 2500,
+  PTRACERS_jx = 200, 200, 400, 400, 400,
+                200, 200, 400, 400, 400,
+  PTRACERS_ptx = 5*1, 5*2
+  PTRACERS_tsx = 5*11923200, 5*11923280 
+&

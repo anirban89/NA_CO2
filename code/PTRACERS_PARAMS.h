@@ -60,13 +60,25 @@ C        (to be removed 1 day ...)
 C--   COMMON /PTRACERS_PARAMS_I/ PTRACERS integer-type parameters:
 C     PTRACERS_numInUse :: number of tracers to use
 C     PTRACERS_Iter0    :: timestep number when tracers are initialized
+C     PTRACERS_ix       :: i-index of perturbation
+C     PTRACERS_jx       :: j-index of perturbation
+C     PTRACERS_ptx      :: ptracer-index of perturbation
+C     PTRACERS_tsx      :: timestep-index of perturbation
       INTEGER PTRACERS_Iter0
       INTEGER PTRACERS_numInUse
       INTEGER PTRACERS_advScheme(PTRACERS_num)
+      INTEGER PTRACERS_ix(PTRACERS_idx)
+      INTEGER PTRACERS_jx(PTRACERS_idx)
+      INTEGER PTRACERS_ptx(PTRACERS_idx)
+      INTEGER PTRACERS_tsx(PTRACERS_idx)
       COMMON /PTRACERS_PARAMS_I/
      &     PTRACERS_Iter0,
      &     PTRACERS_numInUse,
-     &     PTRACERS_advScheme
+     &     PTRACERS_advScheme,
+     &     PTRACERS_ix,
+     &     PTRACERS_jx,
+     &     PTRACERS_ptx,
+     &     PTRACERS_tsx
 
 C--   COMMON /PTRACERS_PARAMS_L/ PTRACERS logical-type parameters:
 C     PTRACERS_ImplVertAdv   :: use Implicit Vertical Advection for this tracer
