@@ -43,11 +43,9 @@ C  myThid               :: thread number
 #ifdef ALLOW_PTRACERS
 
 C !LOCAL VARIABLES: ====================================================
-C  iG,jG                :: Global coordinate index
 C  i,j,k                :: loop indices
 C  iTrc                 :: tracer index
 C  ks                   :: surface level index
-      INTEGER iG, jG
       INTEGER i, j, k
       INTEGER iTrc, ks
       _RL add2EmP(1-OLx:sNx+OLx,1-OLy:sNy+OLy)
@@ -64,15 +62,13 @@ C Example of how to add forcing at the surface
       DO iTrc=1,PTRACERS_numInUse
        DO j = jMin, jMax
         DO i = iMin, iMax
-         iG = myXGlobalLo-1+(bi-1)*sNx+i
-         jG = myYGlobalLo-1+(bj-1)*sNy+j
          surfaceForcingPTr(i,j,bi,bj,iTrc) = 0. _d 0
          DO k = 1, PTRACERS_idx
-          IF ( iTrc .EQ. PTRACERS_ptx(k) .AND.
-     &           myIter .EQ. PTRACERS_tsx(k) .AND.
-     &           iG .EQ. PTRACERS_ix(k) .AND.
-     &           jG .EQ. PTRACERS_jx(k) ) THEN
-             surfaceForcingPTr(i,j,bi,bj,iTrc) = 1. _d 0 / deltaT
+          IF (iTrc .EQ. PTRACERS_ptx(k) .AND.
+     &        myIter .EQ. PTRACERS_tsx(k) .AND.
+     &        abs(XC(i,j,bi,bj)-PTRACERS_lon(k)) .LT.  1. _d -4 .AND.
+     &        abs(YC(i,j,bi,bj)-PTRACERS_lat(k)) .LT.  1. _d -4) THEN
+           surfaceForcingPTr(i,j,bi,bj,iTrc) = 1. _d 0
           ENDIF
          ENDDO
         ENDDO

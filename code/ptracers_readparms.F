@@ -79,8 +79,8 @@ C     tauTr1ClimRelax :: old parameter (will be removed 1 day)
      &     PTRACERS_monitor_mnc,
      &     PTRACERS_pickup_write_mnc,
      &     PTRACERS_pickup_read_mnc,
-     &     PTRACERS_ix,
-     &     PTRACERS_jx,
+     &     PTRACERS_lon,
+     &     PTRACERS_lat,
      &     PTRACERS_ptx,
      &     PTRACERS_tsx
 

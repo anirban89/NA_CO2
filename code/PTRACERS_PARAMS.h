@@ -22,6 +22,8 @@ C              b) use pTracer surface (local) value if = UNSET_RL (default)
 C     PTRACERS_startStepFwd :: time to start stepping forward this tracer
 C     PTRACERS_resetFreq    :: Frequency (s) to reset ptracers to original val
 C     PTRACERS_resetPhase   :: Phase (s) to reset ptracers
+C     PTRACERS_lon      :: longitude of perturbation
+C     PTRACERS_lat      :: latitude of perturbation
 
       _RL PTRACERS_dTLev(Nr)
       _RL PTRACERS_dumpFreq
@@ -35,6 +37,8 @@ C     PTRACERS_resetPhase   :: Phase (s) to reset ptracers
       _RL PTRACERS_startStepFwd(PTRACERS_num)
       _RL PTRACERS_resetFreq(PTRACERS_num)
       _RL PTRACERS_resetPhase(PTRACERS_num)
+      _RL PTRACERS_lon(PTRACERS_idx)
+      _RL PTRACERS_lat(PTRACERS_idx)
       COMMON /PTRACERS_PARAMS_R/
      &     PTRACERS_dTLev,
      &     PTRACERS_dumpFreq,
@@ -47,7 +51,9 @@ C     PTRACERS_resetPhase   :: Phase (s) to reset ptracers
      &     PTRACERS_EvPrRn,
      &     PTRACERS_startStepFwd,
      &     PTRACERS_resetFreq,
-     &     PTRACERS_resetPhase
+     &     PTRACERS_resetPhase,
+     &     PTRACERS_lon,
+     &     PTRACERS_lat
 
 #ifdef ALLOW_COST
 C     COMMON /PTRACERS_OLD_R/ Old (real type) PTRACERS parameters
@@ -60,23 +66,17 @@ C        (to be removed 1 day ...)
 C--   COMMON /PTRACERS_PARAMS_I/ PTRACERS integer-type parameters:
 C     PTRACERS_numInUse :: number of tracers to use
 C     PTRACERS_Iter0    :: timestep number when tracers are initialized
-C     PTRACERS_ix       :: i-index of perturbation
-C     PTRACERS_jx       :: j-index of perturbation
-C     PTRACERS_ptx      :: ptracer-index of perturbation
-C     PTRACERS_tsx      :: timestep-index of perturbation
+C     PTRACERS_ptx      :: ptracer index of perturbation
+C     PTRACERS_tsx      :: timestep of perturbation
       INTEGER PTRACERS_Iter0
       INTEGER PTRACERS_numInUse
       INTEGER PTRACERS_advScheme(PTRACERS_num)
-      INTEGER PTRACERS_ix(PTRACERS_idx)
-      INTEGER PTRACERS_jx(PTRACERS_idx)
       INTEGER PTRACERS_ptx(PTRACERS_idx)
       INTEGER PTRACERS_tsx(PTRACERS_idx)
       COMMON /PTRACERS_PARAMS_I/
      &     PTRACERS_Iter0,
      &     PTRACERS_numInUse,
      &     PTRACERS_advScheme,
-     &     PTRACERS_ix,
-     &     PTRACERS_jx,
      &     PTRACERS_ptx,
      &     PTRACERS_tsx
 
