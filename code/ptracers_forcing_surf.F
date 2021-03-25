@@ -64,10 +64,10 @@ C Example of how to add forcing at the surface
         DO i = iMin, iMax
          surfaceForcingPTr(i,j,bi,bj,iTrc) = 0. _d 0
          DO k = 1, PTRACERS_idx
-          IF (iTrc .EQ. PTRACERS_ptx(k) .AND.
-     &        myIter .EQ. PTRACERS_tsx(k) .AND.
-     &        abs(XC(i,j,bi,bj)-PTRACERS_lon(k)) .LT.  1. _d -4 .AND.
-     &        abs(YC(i,j,bi,bj)-PTRACERS_lat(k)) .LT.  1. _d -4) THEN
+          IF ( iTrc .EQ. PTRACERS_ptx(k) .AND.
+     &         myIter .EQ. PTRACERS_tsx(k) .AND.
+     &         abs(XC(i,j,bi,bj)-PTRACERS_lon(k)) .LT. 0.001 .AND.
+     &         abs(YC(i,j,bi,bj)-PTRACERS_lat(k)) .LT. 0.001 ) THEN
            surfaceForcingPTr(i,j,bi,bj,iTrc) = 1. _d 0
           ENDIF
          ENDDO
