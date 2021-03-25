@@ -1,0 +1,4 @@
+(PID.TID 0000.0001) ** WARNING ** EEBOOT_MINIMAL: defined SINGLE_DISK_IO will result in losing
+(PID.TID 0000.0001) ** WARNING ** EEBOOT_MINIMAL: any message (error/warning) from any proc <> 0
+(PID.TID 0000.0001) ** WARNING ** INI_PARMS: Ignores diffKrT (or Kp,Kz) setting in file "data" with ALLOW_3D_DIFFKR
+(PID.TID 0000.0001) ** WARNING ** INI_MODEL_IO: use tiled-files to write sections (for OBCS)
