@@ -112,7 +112,7 @@
  &PARM03
  deltaT      =   80.,
  nIter0      =0015811200,
- nTimeSteps  =  64800,
+ nTimeSteps  =  2160,
  pChkptFreq  = 864000.,
  monitorFreq =   3600.,
  abEps       = 0.1,

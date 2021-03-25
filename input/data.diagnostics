@@ -13,11 +13,11 @@
  &diagnostics_list
    dumpatlast = .TRUE.,
 #---
-  frequency(1) =-14400.,
-   fields(1:8,1) = 'ETAN','MXLDEPTH',
+  frequency(1) =-3600.,
+   fields(1:8,1) = 'MXLDEPTH','KPPhbl','EXFuwind','EXFvwind',
    filename(1) = 'diags/surface',
 #---
-  frequency(2) =-14400.,
+  frequency(2) =-3600.,
    fields(1:14,2)= 'THETA','SALT','UVEL','VVEL','WVEL',
                   'KPPdiffT', 'TRAC01', 'TRAC02', 
    filename(2) = 'diags/interior',
@@ -25,16 +25,6 @@
                      16.,17.,18.,19.,20.,21.,22.,23.,24.,25.,26.,27.,28.,29.,30.,
                      31.,32.,33.,34.,35.,36.,37.,38.,39.,40.,41.,42.,43.,44.,45.,
                      46.,47.,48.,49.,50.,51.,52.,53.,54.,55.,56.,57.,58.,
-#---
-#  frequency(3) =14400.,
-#   fields(1:14,3) = 'TRAC01', 'UTRAC01', 'VTRAC01', 'WTRAC01', 'ForcTr01',
-#                    'ADVrTr01', 'ADVxTr01', 'ADVyTr01', 'AB_gTr01', 
-#                    'DFrETr01', 'DFxETr01', 'DFyETr01', 'DFrITr01', 'KPPgTr01'
-#   filename(3) = 'diags/tracer01diag',
-#   levels(1:58,3) =  1., 2., 3., 4., 5., 6., 7., 8., 9.,10.,11.,12.,13.,14.,15.,
-#                     16.,17.,18.,19.,20.,21.,22.,23.,24.,25.,26.,27.,28.,29.,30.,
-#                     31.,32.,33.,34.,35.,36.,37.,38.,39.,40.,41.,42.,43.,44.,45.,
-#                     46.,47.,48.,49.,50.,51.,52.,53.,54.,55.,56.,57.,58.,
 #---
  /
 #
